@@ -2,3 +2,8 @@
 /bower_components
 /node_modules
 .project
+/dist
+/src
+/test
+/karma.*
+
