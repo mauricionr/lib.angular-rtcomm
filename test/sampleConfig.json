@@ -1,9 +1,10 @@
 {
     "server" : "localhost",
-	"port" : 9080,
+	"port" : 9081,
 	"rtcommTopicPath" : "/rtcomm/",
     "userid" : "",
 	"broadcastAudio" : true,
 	"broadcastVideo" : true,
-	"presenceTopic" : "sampleRoom"
+	"presenceTopic" : "sampleRoom",
+	"createEndpoint": true
 }

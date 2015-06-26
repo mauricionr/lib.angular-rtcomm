@@ -37,7 +37,7 @@ describe('Unit testing angular-rtcomm service', function() {
       it('initialize with no user ID', function () {
 		  var config = {
 				    "server" : "localhost",
-					"port" : 9080,
+					"port" : 9081,
 					"rtcommTopicPath" : "/rtcomm/",
 				    "userid" : "",
 					"broadcastAudio" : true,
