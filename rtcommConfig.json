@@ -6,7 +6,6 @@
 	"broadcastVideo" : true,
 	"createEndpoint": true,
 	"userid": "",
-	"rtcommDebug": "DEBUG",
 	"presenceTopic": "demo"
 }
 
