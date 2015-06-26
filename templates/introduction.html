@@ -1,0 +1,53 @@
+
+
+
+<section id="gettingStarted">
+
+	<div class="page-header">
+		<h1>Getting Started</h1>
+
+	</div>
+
+
+	<p>This repository contains the Rtcomm Angular.js module. The Rtcomm Angular module exposes a set of real-time communication features in the form of a service and a number of Angular directives and controllers. This module is built on the <a href="https://github.com/WASdev/lib.rtcomm.clientjs">rtcomm.js</a> open source JavaScript library which wraps <a href="http://www.webrtc.org/">WebRTC</a> with call signaling and a number of advanced real-time communications capabilities like presence and chat.</p>
+	<hr>
+	<h3>Requirements</h3>
+
+	<p>Rtcomm utilizes MQTT for call signaling so at a minimum you will need an MQTT message broker that supports web sockets. There are many open source and productized versions of MQTT message brokers available. A geat option is to download the WebSphere Liberty Server which includes an embedded MQTT broker and a number of backend Rtcomm services such as call queueing. 
+
+Download the WebSphere Liberty server free for development and the beta version which includes support for MQTT <a href="https://developer.ibm.com/wasdev/downloads/liberty-profile-beta/">here</a>.</p>
+
+	<h3>Install</h3>
+
+	<p> To install the angular-rtcomm module for use in an AngularJS Application, you can use bower: </p>
+	<div class="well"><code class="prettyprint"> bower install angular-rtcomm</code></div>
+
+	<hr>
+
+
+		<h3>Usage</h3>
+
+	<p> To use the module, you will need to include the following js and css files in your project:</p>
+	
+	<p><strong> Include angular-rtcomm files: </strong></p>
+	<pre class="prettyprint">&lt;script src="bower_components/angular-rtcomm/dist/angular-rtcomm.js&gt;&lt;/script&gt;
+&lt;link href="bower_components/angular-rtcomm/dist/css/angular-rtcomm.css" rel="stylesheet"&gt;</pre>
+
+	<p>The angular-rtcomm modules rely on the following additional JavaScript libraries that can be accessed via various CDNs:</p>
+	<pre class="prettyprint">&lt;link href=&quot;//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;link href=&quot;//cdn.rawgit.com/wix/angular-tree-control/master/css/tree-control-attribute.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+
+&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//git.eclipse.org/c/paho/org.eclipse.paho.mqtt.javascript.git/plain/src/mqttws31.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdn.rawgit.com/wix/angular-tree-control/master/angular-tree-control.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdn.rawgit.com/WASdev/lib.rtcomm.clientjs/master/dist/rtcomm.js&quot;&gt;&lt;/script&gt;</pre>
+	
+	<hr>
+	<h3>Module Injection</h3>
+	<p> Inject the Angular-Rtcomm module into your angular app or module: </p>
+	<code class="prettyprint"> var angularModule = angular.module('angularApp', ['angular-rtcomm']);</code>
+
+</section>

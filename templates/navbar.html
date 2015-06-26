@@ -1,0 +1,32 @@
+<header class="navbar navbar-default navbar-fixed-top navbar-transparent">
+                        <div class="container">
+
+                        <div class="navbar-header">
+                                <a class="navbar-brand" href="./">
+                                       {{title}}</a>
+                        </div>
+                        <div class="navbar-main" class="nav-bar-collapse">
+                                <ul class="nav navbar-nav">
+
+					<li><a href="#gettingStarted">{{gettingStarted}}</a></li>
+                                        <li class="dropdown" dropdown="">
+                                                <a class="dropdown-toggle"  data-toggle="dropdown"role="button" aria-haspopup="true" aria-expanded="false">Directives <span class="caret"></span> </a>
+
+                                        <ul class="dropdown-menu">
+                                                <li ng-repeat="directive in directives">
+							<a href="#{{directive.id}}">{{directive.title}}</a>
+						</li>
+                                        </ul>
+
+                                        </li>
+					<li><a href="#docs">{{docs}}</a></li>
+					<li><a href="#community">{{community}}</a></li>
+					<li><a href="#samples">{{demos}}</a></li>
+                                </ul>
+			
+                        </div>
+                        </div>
+
+
+        </header>
+

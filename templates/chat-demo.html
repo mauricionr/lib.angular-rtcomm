@@ -1,0 +1,96 @@
+<section id="chat">
+
+	<div class="page-header">
+
+		<h2>Rtcomm Chat</h2>
+	</div>
+		<div class="row">
+
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<rtcomm-chat></rtcomm-chat>
+
+				<div class="text-center">
+				<button type="button" class="btn btn-primary" ng-click="startChat()">Start Chat</button>
+				<button type="button" class="btn" ng-click="stopChat()">Stop Chat</button></div>
+			</div>
+
+		</div>
+
+		<hr>
+				<tabset>
+
+
+
+
+					<tab heading="HTML" >
+						<pre class="prettyprint">
+&lt;rtcomm-chat&gt;&lt;/rtcomm-chat&gt;
+
+&lt;button type="button" class="btn btn-primary" ng-click="startChat()"&gt;
+	Start Chat
+&lt;/button&gt;
+
+&lt;button type="button" class="btn" ng-click="stopChat()"&gt;
+&lt;/button&gt;
+
+						</pre>
+
+					</tab>
+					<tab heading="JavaScript">
+						<pre class="prettyprint">
+
+
+rtcommPageApp.controller('RtcommChatDemoCtrl', function($scope, RtcommService){
+
+        /* Start chatting with rtcomm-bot */
+        $scope.startChat = function(){
+                /* Check if the endpoint is already connected */
+                var status = RtcommService.getSessionState(RtcommService.getActiveEndpoint());
+
+                /* Not connected to rtcomm-bot? Start chatting! */
+                if(status == 'session:stopped'){
+
+                        /* Start chat session with rtcomm-bot*/
+                        RtcommService.placeCall('rtcomm-bot', ['chat']);
+                }
+
+                /* Already in a video call with rtcomm-bot? Start chatting! */
+                else if(status == 'session:started'){
+                        //Get the current active endpoint       
+                        var openEndpoint = RtcommService.getEndpoint(RtcommService.getActiveEndpoint());
+
+                        openEndpoint.chat.enable();
+
+                }
+
+        }
+
+        /* Disconnect the user from the session */
+        $scope.stopChat = function(){
+
+                 /* Get the active endpoint in the session */
+                var activeEndpointUUID =  RtcommService.getActiveEndpoint();
+         
+                var activeEndpoint = RtcommService.getEndpoint(activeEndpointID);
+
+                /* Disconnect the endpoint from the session */
+                activeEndpoint.disconnect();
+        }
+})
+
+
+						</pre>
+					</tab>
+
+				</tabset>
+
+
+
+
+
+
+
+
+
+</section>

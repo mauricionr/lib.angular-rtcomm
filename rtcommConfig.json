@@ -1,0 +1,12 @@
+{
+  	"server" : "localhost" ,
+	"port" : 1883 ,
+	"rtcommTopicPath" : "/rtcomm/",
+	"broadcastAudio" : true,
+	"broadcastVideo" : true,
+	"createEndpoint": true,
+	"userid": "",
+	"rtcommDebug": "DEBUG",
+	"presenceTopic": "demo"
+}
+

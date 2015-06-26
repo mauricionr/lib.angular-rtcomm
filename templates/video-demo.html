@@ -1,0 +1,85 @@
+
+
+<section id="video">
+	<div class="page-header">
+		<h2>Rtcomm Video</h2>
+	</div>		
+	
+		<div class="row">
+
+			<div class="col-md-3"></div>
+			<div class="col-md-6 text-center">
+				<div class="well">
+					<rtcomm-video></rtcomm-video>
+				</div>
+			
+				 <button type="button" ng-click="placeCall()"  class="btn btn-primary">Place a Call</button>
+
+				<button type="button" ng-click="stopCall()" class="btn">Stop Call</button>
+			</div>
+			<div class="col-md-3">
+			</div>
+</div>
+
+<br>
+
+                                <p>This Rtcomm directive is the simplest way to start a 1 on 1 group conversion.</p>
+
+
+				
+<hr>	<tabset>
+							<tab heading="HTML">
+						<pre class="prettyprint">
+
+
+&lt;div clas="well"&gt;			
+	&lt;rtcomm-video&gt;&lt;/rtcomm-video&gt;
+&lt;/div&gt;
+
+
+&lt;button type="button" ng-click="placeCall()" class="btn btn-primary"&gt;Place a Call&lt;/button&gt;
+
+							</pre>
+						</tab>
+
+						<tab heading="JavaScript" >
+					
+						<pre class="prettyprint">
+rtcommPageApp.controller('RtcommVideoDemoCtrl', function($scope, RtcommService){
+
+        /* Rtcomm Bot works as the user to place the call */
+        var demoCallerID = 'rtcomm-bot';
+
+        /* Place a call to another user */
+        $scope.placeCall = function(){
+                /* Use the RtcommService to place a call to a user */
+		/*  enable video and audio using 'webrtc'*/
+                RtcommService.placeCall(demoCallerID, ['webrtc']);
+
+        }
+})
+
+   /* Stop the active call */
+        $scope.stopCall = function(){
+
+                /* Get the active endpoint in the session */
+                var activeEndpointUUID =  RtcommService.getActiveEndpoint();
+
+                var activeEndpoint = RtcommService.getEndpoint(activeEndpointUUID);
+
+                /* Disconnect the endpoint from the session */
+                activeEndpoint.disconnect();
+                
+
+        }
+
+
+							</pre>
+						</tab>
+					</tabset>
+
+<!--			</div>
+
+		</div>-->
+
+</section>
