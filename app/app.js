@@ -80,9 +80,15 @@ rtcommPageApp.directive('pageNavbar', function()
 			$scope.title = "Angular Rtcomm";
 			$scope.gettingStarted = "Getting Started";
 			$scope.directives = [
-			{title: "Video", id: "video"},
-			{title: "Chat", id: "chat"},
-			{title: "Register", id:"register"}]
+
+                                {title: "Register", id:"register"},
+				{title: "Video", id: "video"},
+				{title: "Chat", id: "chat"},
+				{title: "Endpoint Status", id: "endpoint-status"},
+				{title: "Presence", id: "presence"},
+				{title: "Session Manager", id: "sessionmgr"},
+				{title: "Queues", id: "queues"}
+			]
 
 			$scope.docs = "Docs";
 			$scope.community = "Community";
@@ -108,7 +114,89 @@ rtcommPageApp.directive('prettyprint', function() {
 });
 
 
-rtcommPageApp.run(function(RtcommService){
-//	RtcommService.register('demo-guest');
+rtcommPageApp.run(function(RtcommService, $rootScope, $modal, $log){
+	
+	
+	$rootScope.registered = false;
+	
+
+
+	/* Global function to be called to open the registration modal */
+	$rootScope.openModal = function(){
+
+		     var modalInstance = $modal.open({
+                                animation: true,
+                                templateUrl: 'templates/modal-register.html',
+                                controller: function($scope, $modalInstance, $log){
+
+                                        $scope.cancel = function(){
+
+                                                $modalInstance.dismiss('cancel');
+
+                                        }
+					
+					/* Modal handles registration event */
+					$scope.$on('rtcomm::init', function(event, success, details){
+						$log.debug('LandingPageApp ---> Registration Modal ---> RtcommInit');
+
+						if(success==true){
+							$log.debug('LandingPageApp --> Registration Modal ---> Registration Successful')
+							$scope.cancel();
+	
+						}
+					})
+
+                                }
+
+
+                        });
+	}
+	
+	/* Handles the broadcast for when the endpoint is intiailized, here we check if the registration is succcessful */
+	$rootScope.$on('rtcomm::init', function(event, success, details){
+
+		$log.debug('LandingPageApp ---> RtcommInit');
+
+		if(success==true){
+
+	                $log.debug('LandingPageApp ---> Registration Successful');
+
+			$rootScope.registered = true;
+		}
+	})
+
+	/* Handles the event in which the endpoint is destroyed (uninitialized?);*/
+	$rootScope.$on('destroyed', function(event, args){
+		$log.debug('LandingPageapp ---> RtcommDestroyed');
+
+		
+		$rootScope.registered = false;
+	})
+});
+
+rtcommPageApp.directive('registered', function(){
+	
+		
+	return {
+		restrict: 'C',
+		terminal: true,
+		link: function(scope, element, attr){
+			
+			var clickAction = attr.ngClick;
+			element.bind('click', function(event){
+				if(!scope.registered){
+				
+					scope.openModal();
+					event.stopImmediatePropagation();
+					event.preventDefault()
+				}	
+
+			});
+		}
+	}
 
 });
+
+
+
+

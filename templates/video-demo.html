@@ -2,7 +2,7 @@
 
 <section id="video">
 	<div class="page-header">
-		<h2>Rtcomm Video</h2>
+		<h1>Rtcomm Video</h1>
 	</div>		
 	
 		<div class="row">
@@ -13,7 +13,7 @@
 					<rtcomm-video></rtcomm-video>
 				</div>
 			
-				 <button type="button" ng-click="placeCall()"  class="btn btn-primary">Place a Call</button>
+				 <button type="button"  ng-click="placeCall()"  class="btn btn-primary registered">Place a Call</button>
 
 				<button type="button" ng-click="stopCall()" class="btn">Stop Call</button>
 			</div>
@@ -57,9 +57,8 @@ rtcommPageApp.controller('RtcommVideoDemoCtrl', function($scope, RtcommService){
                 RtcommService.placeCall(demoCallerID, ['webrtc']);
 
         }
-})
 
-   /* Stop the active call */
+	/* Stop the active call */
         $scope.stopCall = function(){
 
                 /* Get the active endpoint in the session */
@@ -70,7 +69,7 @@ rtcommPageApp.controller('RtcommVideoDemoCtrl', function($scope, RtcommService){
                 /* Disconnect the endpoint from the session */
                 activeEndpoint.disconnect();
                 
-
+})
         }
 
 
