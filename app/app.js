@@ -49,7 +49,6 @@ rtcommPageApp.config(function($stateProvider, $urlRouterProvider)
 				templateUrl: 'templates/presence-demo.html',
 				controller: 'RtcommPresenceDemoCtrl'
 			},
-
 			'sessionmgr-demo@home':{
 				templateUrl: 'templates/sessionmgr-demo.html',
 				controller: 'RtcommSessionMgrDemoCtrl'
@@ -61,7 +60,26 @@ rtcommPageApp.config(function($stateProvider, $urlRouterProvider)
 				controller: 'RtcommQueuesDemoCtrl'
 			}
 		}
-		});
+		})
+
+	.state('api', {
+		
+		views:{
+
+			'':{
+				templateUrl: 'templates/api.html',
+				controller: 'APIDocsCtrl'
+			}
+		}		
+
+	})
+	
+	API_DOCS.pages.forEach(function(page, index){
+		$stateProvider.state(page.state,{templateUrl:  page.templateUrl});		
+
+	});
+
+
 
 
 
@@ -197,6 +215,18 @@ rtcommPageApp.directive('registered', function(){
 
 });
 
+rtcommPageApp.controller('APIDocsCtrl', function($scope){
+	
+	$scope.directives = [];
+	$scope.services = [];
+	
+	API_DOCS.pages.forEach(function(page, index){
+		
+		if(page.category == "directive")
+			$scope.directives.push(page);
+		else if(page.category == "service")
+			$scope.services.push(page);
 
+	})	
 
-
+})
