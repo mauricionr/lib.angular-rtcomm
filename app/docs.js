@@ -16,6 +16,17 @@ API_DOCS={
 			"templateUrl" : "templates/api/rtcomm-chat.html"
 		},
 
+
+		{
+
+			"state": "api.RtcommRegister",
+			"category": "directive",
+			"name": "RtcommRegister",
+			"templateUrl": "templates/register-demo.html"
+
+
+		},
+
 		{
 			"state": "api.RtcommService",
 			"category": "service",
@@ -31,6 +42,16 @@ API_DOCS={
 			"category": "service",
 			"name": "RtcommConfig",
 			"templateUrl" : " templates/api/rtcomm-config.html"
+
+
+		},
+
+		{
+			"state": "api.Concepts",
+			"category":"extra",
+			"name": "Concepts",
+			"templateUrl": "templates/api/concepts.html"
+			
 
 
 		}

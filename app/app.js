@@ -73,7 +73,9 @@ rtcommPageApp.config(function($stateProvider, $urlRouterProvider)
 		}		
 
 	})
-	
+
+
+
 	API_DOCS.pages.forEach(function(page, index){
 		$stateProvider.state(page.state,{templateUrl:  page.templateUrl});		
 
