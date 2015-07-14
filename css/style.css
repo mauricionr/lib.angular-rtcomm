@@ -1,0 +1,81 @@
+body{
+//	background-color: #34495e !important
+	//background-color: #ecf0f1 !important;
+}
+.well-api{
+//	background-color: #ecf0f1 !important;
+}
+
+section {
+    padding-top: 30px;
+}
+body {
+    opacity: 1;
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    transition: opacity 1s;
+}
+
+
+section {
+    padding-top: 30px;
+}
+
+.page-header h1 > small > a {
+    color: #999;
+}
+.page-header h1 > small > a:hover {
+    text-decoration: none;
+}
+
+
+.btn-outline-inverse:hover, .btn-outline-inverse:focus, .btn-outline-inverse:active {
+color: #563d7c;
+text-shadow: none;
+background-color: #fff;
+border-color: #fff;
+}
+
+
+/* Page headers */
+.bs-header {
+  padding: 30px 15px 40px; /* side padding builds on .container 15px, so 30px */
+  font-size: 16px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0,0,0,.15);
+  color: #cdbfe3;
+  background-color: #2980b9;//#34495e;
+  background-image: url(header.png);
+}
+.bs-header a {
+  color: #fff;
+  font-weight: normal;
+}
+.bs-header h1 {
+  color: #fff;
+}
+.bs-header p {
+  font-weight: 200;
+  line-height: 1.4;
+}
+.bs-header .container {
+  position: relative;
+}
+  .bs-header {
+    font-size: 30px;
+    text-align: left;
+  }
+  .bs-header h1 {
+    font-size: 100px;
+    line-height: 1;
+  }
+/* Not enough room on mobile for markup tab, js tab, and plunk btn.
+ *   And no one cares about plunk button on a phone anyway */
+.header-placeholder {
+    height: 50px;
+}
+
+p {
+	font-size: 16px;
+
+}

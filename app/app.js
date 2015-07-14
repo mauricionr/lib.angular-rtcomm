@@ -134,8 +134,8 @@ rtcommPageApp.directive('prettyprint', function() {
 });
 
 
-rtcommPageApp.run(function(RtcommService, $rootScope, $modal, $log){
-	
+rtcommPageApp.run(function(RtcommService, $state, $rootScope, $modal, $log){
+	$rootScope.$state = $state;
 	
 	$rootScope.registered = false;
 	

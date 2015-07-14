@@ -49,5 +49,43 @@ Download the WebSphere Liberty server free for development and the beta version 
 	<h3>Module Injection</h3>
 	<p> Inject the Angular-Rtcomm module into your angular app or module: </p>
 	<code class="prettyprint"> var rtcommLandingPage = angular.module('rtcomm.angular.page', ['angular-rtcomm']);</code>
+	
 
+	<h3>Quick Configuration</h3>
+	<p>For a quick configuration one can use the <a href="#">RtcommConfigController</a> to setup the angular-rtcomm module for use.</p>
+
+       <pre class="prettyprint">
+
+&lt;html ng-app="rtcomm.angular.page"&gt;
+	&lt;-- Stylesheets, meta and javascript --&gt;
+	&lt;head&gt;
+	&lt;/head&gt;
+	
+	&lt;body&gt;
+		&lt;-- Your webpage content --&gt;
+		
+		&lt;-- Initialize the Rtcomm library with a JSON configuration file --&gt;	
+		&lt;div ng-controller="RtcommConfigController" ng-init="init('rtcommConfig.json')"&gt;&lt;/div&gt;
+	&lt;body&gt;
+&lt;/html&gt;
+
+</pre>
+
+ 	<p> An example of <strong>rtcommConfig.json</strong> can be found here: </p>
+
+	<pre class="prettyprint">
+
+{
+        "server" : "localhost" ,
+        "port" : 1883 ,
+        "rtcommTopicPath" : "/rtcomm/",
+        "broadcastAudio" : true,
+        "broadcastVideo" : true,
+        "createEndpoint": true,
+        "userid": "",
+        "presenceTopic": "demo"
+}
+
+</pre>	
+<p>Here we setup parameters for the server, port, the topic path. One could also enable if audio or video should be broadcasted. While the user id could be left empty for later assignment either by <a href=#"> Single Sign-On </a> or the <a href="#register">RtcommRegister</a> directive. For more information about configuration and setup parameters for the angular-rtcomm module refer to the <a href="#">full api reference</a>.</p>
 </section>
