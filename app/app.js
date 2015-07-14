@@ -3,16 +3,17 @@
 var rtcommPageApp = angular.module('rtcomm.angular.page', ['angular-rtcomm','ui.router','ngSanitize']);
 
 
-rtcommPageApp.config(function($stateProvider, $urlRouterProvider)
+rtcommPageApp.config(function($location, $stateProvider, $urlRouterProvider)
 {
-
-
-	$urlRouterProvider.otherwise('/lib.angular-rtcomm');
+	
+console.log("French fries");
+	console.log($location.absUrl());
+	$urlRouterProvider.otherwise('lib.angular-rtcomm');
 	
 	$stateProvider
 	
 	.state('home', {
-		url: '/lib.angular-rtcomm',
+		url: 'lib.angular-rtcomm',
 		views:	{
 
 			'':{templateUrl: 'templates/landing-page.html' },
@@ -136,7 +137,7 @@ rtcommPageApp.directive('prettyprint', function() {
 
 rtcommPageApp.run(function(RtcommService, $state, $rootScope, $modal, $log){
 	$rootScope.$state = $state;
-	
+	$log.log("READDYYY!");	
 	$rootScope.registered = false;
 	
 
