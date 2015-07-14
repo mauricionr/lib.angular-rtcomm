@@ -7,12 +7,12 @@ rtcommPageApp.config(function($stateProvider, $urlRouterProvider)
 {
 
 
-	$urlRouterProvider.otherwise('/lib.angular-rtcomm/');
+	$urlRouterProvider.otherwise('/');
 	
 	$stateProvider
 	
 	.state('home', {
-		url: '/lib.angular-rtcomm/',
+		url: '',
 		views:	{
 
 			'':{templateUrl: 'templates/landing-page.html' },
