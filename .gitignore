@@ -1,9 +1,10 @@
 /.settings
-/bower_components
-/node_modules
+bower_components/
+node_modules/
 .project
 /dist
 /src
-/test
+test/
 /karma.*
 test/
+docs/
