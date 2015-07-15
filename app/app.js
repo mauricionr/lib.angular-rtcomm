@@ -3,61 +3,60 @@
 var rtcommPageApp = angular.module('rtcomm.angular.page', ['angular-rtcomm','ui.router','ngSanitize']);
 
 
-rtcommPageApp.config(function($location, $stateProvider, $urlRouterProvider)
+rtcommPageApp.config(function( $stateProvider, $urlRouterProvider)
 {
-	
-console.log("French fries");
-	console.log($location.absUrl());
-	$urlRouterProvider.otherwise('lib.angular-rtcomm');
+	console.log("hellok");	
+	var path = '/lib.angular-rtcomm/';
+	$urlRouterProvider.otherwise('/lib.angular-rtcomm/');
 	
 	$stateProvider
 	
 	.state('home', {
-		url: 'lib.angular-rtcomm',
+		url: '/lib.angular-rtcomm/',
 		views:	{
 
-			'':{templateUrl: 'templates/landing-page.html' },
-			'introduction@home':{templateUrl: 'templates/introduction.html'},
+			'':{templateUrl: path+'templates/landing-page.html' },
+			'introduction@home':{templateUrl: path+ 'templates/introduction.html'},
 			
 
 
 			/* Direcive Views Routed as a sub-view for the landing page */			
 			'register-demo@home' : {
-				templateUrl: 'templates/register-demo.html',
+				templateUrl: path+ 'templates/register-demo.html',
 				controller: 'RtcommRegisterDemoCtrl'
 			},
 
 			'video-demo@home':{
-				templateUrl: 'templates/video-demo.html',
+				templateUrl: path+'templates/video-demo.html',
 				controller: 'RtcommVideoDemoCtrl'
 
 
 			},	
 			
 			'chat-demo@home':{
-				templateUrl: 'templates/chat-demo.html',
+				templateUrl:path+ 'templates/chat-demo.html',
 				controller: 'RtcommChatDemoCtrl'
 
 
 			},
 
 			'endpoint-status-demo@home':{
-				templateUrl: 'templates/endpoint-status-demo.html',
+				templateUrl: path+'templates/endpoint-status-demo.html',
 				controller: 'RtcommEndpointStatusDemoCtrl'
 			},		
 			
 			'presence-demo@home':{
-				templateUrl: 'templates/presence-demo.html',
+				templateUrl: path+ 'templates/presence-demo.html',
 				controller: 'RtcommPresenceDemoCtrl'
 			},
 			'sessionmgr-demo@home':{
-				templateUrl: 'templates/sessionmgr-demo.html',
+				templateUrl: path+ 'templates/sessionmgr-demo.html',
 				controller: 'RtcommSessionMgrDemoCtrl'
 
 			},
 			
 			'queues-demo@home':{
-				templateUrl: 'templates/queues-demo.html',
+				templateUrl: path+ 'templates/queues-demo.html',
 				controller: 'RtcommQueuesDemoCtrl'
 			}
 		}
@@ -68,7 +67,7 @@ console.log("French fries");
 		views:{
 
 			'':{
-				templateUrl: 'templates/api.html',
+				templateUrl:path+ 'templates/api.html',
 				controller: 'APIDocsCtrl'
 			}
 		}		
