@@ -29,8 +29,14 @@
 <script src="app/docs.js"></script>
 <script src="app/app.js"></script>
 <script src="app/controllers.js"></script>
+  <script>
+    var shiftWindow = function() { scrollBy(0, -50) };
+    window.addEventListener("hashchange", shiftWindow);
+    function load() { if (window.location.hash) shiftWindow(); }
+  </script>
+
 </head>
-<body> 
+<body id="backToTop" onload="load()"> 
 	<page-navbar></page-navbar>
 	<div class="header-placeholder"></div>
 	        <div ng-controller="RtcommConfigController" ng-init="init('rtcommConfig.json')"></div>
@@ -51,8 +57,6 @@
 
 
 <script src="lib/prettify.js"></script>
-<script>
-	window.onload = (function(){ prettyPrint()});
 </script>
 </body>
 </html>

@@ -44,7 +44,7 @@ border-color: #fff;
   text-align: center;
   text-shadow: 0 1px 0 rgba(0,0,0,.15);
   color: #cdbfe3;
-  background-color: #2980b9;//#34495e;
+  background-color: #393566;// #2980b9;//#34495e;
   background-image: url(header.png);
 }
 .bs-header a {
@@ -79,3 +79,43 @@ p {
 	font-size: 16px;
 
 }
+
+.btn-bluemix {
+    background: #26343F;
+    color: #ffffff;
+}
+ 
+.btn-bluemix:hover, .btn-bluemix:focus, .btn-bluemix:active, .btn-bluemix.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+ 
+.btn-bluemix:active, .btn-bluemix.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+.btn-liberty {
+    background: #393566;
+    color: #ffffff;
+}
+.liberty-logo{
+	-webkit-filter:	invert(1);
+	filter: invert(1);
+
+}
+
+section {
+padding-top:40px;
+}
+
+.btn-liberty:hover, .btn-liberty:focus, .btn-liberty:active, .btn-liberty.active, .open > .dropdown-toggle.btn-primary {
+    background: #5A4677;
+}
+
+
+
+.btn-liberty:active, .btn-liberty.active {
+    background: #007299;
+    box-shadow: none;
+}
+
