@@ -11,11 +11,28 @@
 				<rtcomm-chat></rtcomm-chat>
 
 				<div class="text-center">
+
+				<input type="text" ng-model="demoCallerID" class="form-control" placeholder="Enter the name of someone to chat with, ex. john_smith" />
+<br/>
 				<button type="button" class="btn btn-primary" ng-click="startChat()">Start Chat</button>
 				<button type="button" class="btn" ng-click="stopChat()">Stop Chat</button></div>
 			</div>
 
 		</div>
+<br/>
+	<p>This <strong> chat directive</strong> demo, allows you to start a chat session with another person who is currently accessing the webpage. Input their registered name in the field above and start the chat session.</p>
+
+<p>RtcommChat allows users to initiate real time chat conversations with another user. This feature needs 'chat' to be enabled on the client. One can initiate the chat session using the <a href="#"><strong>RtcommService</strong></a> as in the code below or through the <a href="#"><strong>RtcommPresence</strong></a> directive and enabling the chat option. This allows users to start chat sessions with other users in the same topic.</p>
+
+	<h4>CSS - Customize Color and Size </h4>
+	
+<p>	The color and size of this directive can be changed by modifying the attributes related to it found in the <a href="https://github.com/WASdev/lib.angular-rtcomm/blob/master/src/css/angular-rtcomm.css"><strong>angular-rtcomm.css</strong></a> file </p>:
+	
+		<ul>
+			<li><code>.chat</code> - Overall chat diretive element</li>
+			<li><code>.chat li</code> - List element containing the chat message (timestamp, name, message)</li>
+			<li><code>.chat li .chat -body p</code> - Can be used to set the <strong>color</strong> of the messages in the chat</li>	
+		</ul>
 
 		<hr>
 				<tabset>

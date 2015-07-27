@@ -2,7 +2,7 @@
 
 <section id="video">
 	<div class="page-header">
-		<h1>Rtcomm Video</h1>
+		<h1>rtcommVideo</h1>
 	</div>		
 	
 		<div class="row">
@@ -24,9 +24,11 @@
 </div>
 
 <br>
-        <p>Have a friend enter the <a href="http://wasdev.github.io/lib.angular-rtcomm">website</a> and register with a name, place a call to them using their name in the input field above.</p>
+        <p>Start a video and audio conversation using the <strong>video directive</strong>. Have a friend enter the <a href="http://wasdev.github.io/lib.angular-rtcomm">website</a> and register with a name, place a call to them using the name they registered with in the input field above.</p>
 
-                                <p>This Rtcomm directive uses two video streams one for the remote user and one for the local user. If a call is in session the video streams will by default use this directive to display the video feeds of both users.</p>
+
+                                <p>This directive uses two video streams one for the remote user and one for the local user. If a call is in session, the video streams will by default use this directive to display the video feeds of both users.The WebRTC feature needs to enabled to use this directive.  Basically, one would add the directive to the page and after that initiate a call using the <a href="#"><strong>RtcommService</strong></a> as shown in the example below. Another way to do it is by using <a href="#"><strong>RtcommPresence</strong></a> this allows the user of your application to initiate calls on other people subscribed to the same topic.</p>
+
 
 
 				
@@ -75,8 +77,8 @@ rtcommPageApp.controller('RtcommVideoDemoCtrl', function($scope, RtcommService){
                 /* Disconnect the endpoint from the session */
                 activeEndpoint.disconnect();
                 
-})
-        }
+	})
+}
 
 
 							</pre>
