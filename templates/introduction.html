@@ -10,10 +10,10 @@
 	</div>
 
 
-	<p>This repository contains the Rtcomm Angular.js module. The Rtcomm Angular module exposes a set of real-time communication features in the form of a service and a number of Angular directives and controllers. This module is built on the <a href="https://github.com/WASdev/lib.rtcomm.clientjs">rtcomm.js</a> open source JavaScript library which wraps <a href="http://www.webrtc.org/">WebRTC</a> with call signaling and a number of advanced real-time communications capabilities like presence and chat.
+<p>The module exposes a set of real-time communication capabilities in the form of an Angular service and a number of Angular directives and controllers. This module is built on the <a href="https://github.com/WASdev/lib.rtcomm.clientjs">rtcomm.js</a> open source JavaScript library which wraps <a href="http://www.webrtc.org/">WebRTC</a> with call signaling and adds a number of advanced real-time communications capabilities like presence and chat.
 
 </p>
-
+<!--
 <h3>Browsers Supported</h3>
 
 <div class="row">
@@ -26,9 +26,13 @@
 	        <a href="https://www.mozilla.org/en-US/firefox/new/"><img width="48px" height="48px" src="assets/firefox.png"><br/><p>Firefox<p></a>
 
 	</div>
-</div>
+</div>-->
 <h3>Requirements</h3>
-	<p>In order to use the features of this library you will need at least an MQTT message broker. This is because the Rtcomm library uses MQTT for call signaling in order to establish the sessions between the users. Therefore you will need to use an existing an MQTT message broker (<a href="#">some features won't work</a>),  you could <a href="#server_setup"><strong>setup your own server</strong></a> or use <a href="#configuration"><strong>our server</strong></a> which was setup for the ocassion.</p>
+	<p>At a minimum, this module requires an MQTT broker for call signaling. The module is designed to work with any standard MQTT broker that supports the protocol version 3.1 and higher. Some of the advanced capabilities of this module require the WebSphere Liberty server. These will be pointed out in the documentation <a href="#">below</a>. If all you need is basic peer-to-peer calling and presence any open MQTT broker should do.</p>
+
+<p>
+	To make this module as easy to consume as possible, we are providing a <a href="#"> backend broker</a> along with an instance of WebSphere Liberty that can be used for testing. It's the same service that is used to demonstrate the directives on this page. For those wishing to create their own sandbox for testing, you can download a developer version of the latest WebSphere Liberty server <a href="#">here</a> which includes everything you need to get started. This server is free for developers and can be up and running in a manner of minutes.
+</p>
 </section>
 <section id="gettingStarted">
 	<div class="page-header">	
@@ -71,7 +75,7 @@ Download the WebSphere Liberty server free for development and the beta version 
 	<pre class="prettyprint">&lt;script src="bower_components/angular-rtcomm/dist/angular-rtcomm.js&gt;&lt;/script&gt;
 &lt;link href="bower_components/angular-rtcomm/dist/css/angular-rtcomm.css" rel="stylesheet"&gt;</pre>
 
-	<p>Add the JS and CSS dependencies which can be retrieved through CDNs:</p>
+	<p>It's best to use the versions of JavaScritp libraries installed via bower but if you prefer these can be included from CDNs as follows:</p>
 	<pre class="prettyprint">&lt;link href=&quot;//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
 &lt;link href=&quot;//cdn.rawgit.com/wix/angular-tree-control/master/css/tree-control-attribute.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
 
@@ -92,9 +96,17 @@ Download the WebSphere Liberty server free for development and the beta version 
 
 <section id="configuration">
 	<h3 >Quick Configuration</h3>
+	<p> There are a couple of ways to configure the rtcomm-module:</p>
+	<ul>
+		<li>Passing a JSON object to the module via the setConfig command.</li>
+		<li>Using the RtcommConfigController to specify a JSON file to load on startup</li>
+	</ul>
 	<p>
 
-Use the <a href="#">RtcommConfigController</a> to setup the angular-rtcomm module for use.</p>
+The easiest way is to use the <a href="#">RtcommConfigController</a>. Here's how:
+
+</p>
+
 </br>
        <pre class="prettyprint">
 

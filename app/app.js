@@ -97,7 +97,7 @@ rtcommPageApp.directive('pageNavbar', function()
 		controller: function($scope,$log)
 		{
 
-			$scope.title = "Angular Rtcomm";
+			$scope.title = "angular-rtcomm";
 			$scope.gettingStarted = "Getting Started";
 			$scope.directives = [
 

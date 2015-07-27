@@ -6,15 +6,15 @@ rtcommPageApp.controller('RtcommRegisterDemoCtrl', function($scope)
 
 });
 
-rtcommPageApp.controller('RtcommVideoDemoCtrl', function($scope, RtcommService){
-	
-	/* Rtcomm Bot works as the user to place the call */
-	var demoCallerID = 'rtcomm-bot';
-	
+rtcommPageApp.controller('RtcommVideoDemoCtrl', function($scope, RtcommService)
+{
+	/* Data model for the caller name */	
+	$scope.demoCallerID = "";
+
 	/* Place a call to another user */
 	$scope.placeCall = function(){
 		//Use the RtcommService to place a call to a user, enable video and audio using 'webrtc'
-		RtcommService.placeCall(demoCallerID, ['webrtc']);
+		RtcommService.placeCall($scope.demoCallerID, ['webrtc']);
 
 	}
 

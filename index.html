@@ -54,7 +54,28 @@
 	<script type="text/javascript">
 	
 	</script>	
+	
+	<script type="text/ng-template" id="callerInput.html">
+		<div class="modal-header">
+			<h3 class="modal-title">Place a Call</h3>
+		
+		</div>
 
+		<div class="modal-body">
+			<div class="form-group">
+				<label for="callerName">Place a call to a friend on the same website</label>
+				<input type="text" class="form-control" id="callerName" placeholder="john_smith">
+
+			</div>			
+
+			<p>Have a friend enter the <a href="http://wasdev.github.io/lib.angular-rtcomm">website</a> and register with a name, place a call to them using their name in the input field above! </p>
+		</div>
+
+		 <div class="modal-footer">
+			<button class="btn btn-primary" ng-click="call()">OK</button>
+			<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+	        </div>
+	</script>
 
 <script src="lib/prettify.js"></script>
 </script>

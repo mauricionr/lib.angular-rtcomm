@@ -12,7 +12,9 @@
 				<div class="well">
 					<rtcomm-video></rtcomm-video>
 				</div>
-			
+				
+				<input type='text' ng-model="demoCallerID"  class='form-control' placeholder='Enter the name of someone to call, ex. john_smith'/>			
+				<br/>
 				 <button type="button"  ng-click="placeCall()"  class="btn btn-primary registered">Place a Call</button>
 
 				<button type="button" ng-click="stopCall()" class="btn">Stop Call</button>
@@ -22,6 +24,7 @@
 </div>
 
 <br>
+        <p>Have a friend enter the <a href="http://wasdev.github.io/lib.angular-rtcomm">website</a> and register with a name, place a call to them using their name in the input field above.</p>
 
                                 <p>This Rtcomm directive uses two video streams one for the remote user and one for the local user. If a call is in session the video streams will by default use this directive to display the video feeds of both users.</p>
 
@@ -36,6 +39,8 @@
 	&lt;rtcomm-video&gt;&lt;/rtcomm-video&gt;
 &lt;/div&gt;
 
+&lt;input type="text" ng-model="demoCallerID" class="form-control" placeholder="Enter the name of someone to call, ex. john_smith" /&gt;
+&lt;br/&gt;
 
 &lt;button type="button" ng-click="placeCall()" class="btn btn-primary"&gt;Place a Call&lt;/button&gt;
 
@@ -48,14 +53,14 @@
 						<pre class="prettyprint">
 rtcommPageApp.controller('RtcommVideoDemoCtrl', function($scope, RtcommService){
 
-        /* Rtcomm Bot works as the user to place the call */
-        var demoCallerID = 'rtcomm-bot';
+        /* Data model for the caller name */
+	$scope.demoCallerID = "";
 
         /* Place a call to another user */
         $scope.placeCall = function(){
                 /* Use the RtcommService to place a call to a user */
 		/*  enable video and audio using 'webrtc'*/
-                RtcommService.placeCall(demoCallerID, ['webrtc']);
+                RtcommService.placeCall($scope.demoCallerID, ['webrtc']);
 
         }
 
