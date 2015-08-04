@@ -1,24 +1,28 @@
 
-
+/* Define the angular-rtcomm Landing Page application */
 var rtcommPageApp = angular.module('rtcomm.angular.page', ['angular-rtcomm','ui.router','ngSanitize']);
 
-
+/* Configuration for the application */
 rtcommPageApp.config(function( $stateProvider, $urlRouterProvider)
 {
-	console.log("hellok");	
+	/* Default path */
 	var path = '/lib.angular-rtcomm/';
+	
+	/* Default value */
 	$urlRouterProvider.otherwise('/lib.angular-rtcomm/');
 	
+	/* Define the states for the views */
 	$stateProvider
 	
+	/* Home page is the landing page '/' */
 	.state('home', {
 		url: '/lib.angular-rtcomm/',
 		views:	{
-
+			
+			/* Introduction, contains the overview and getting started guide of the angular-rtcomm module */
 			'':{templateUrl: path+'templates/landing-page.html' },
 			'introduction@home':{templateUrl: path+ 'templates/introduction.html'},
 			
-
 
 			/* Direcive Views Routed as a sub-view for the landing page */			
 			'register-demo@home' : {
@@ -61,33 +65,9 @@ rtcommPageApp.config(function( $stateProvider, $urlRouterProvider)
 			}
 		}
 		})
-
-	.state('api', {
-		
-		views:{
-
-			'':{
-				templateUrl:path+ 'templates/api.html',
-				controller: 'APIDocsCtrl'
-			}
-		}		
-
-	})
-
-
-
-	API_DOCS.pages.forEach(function(page, index){
-		$stateProvider.state(page.state,{templateUrl:  page.templateUrl});		
-
-	});
-
-
-
-
-
 });
 
-
+/* Directive for the page navigation bar */
 rtcommPageApp.directive('pageNavbar', function()
 {
 
@@ -119,28 +99,16 @@ rtcommPageApp.directive('pageNavbar', function()
 		}
 	}
 });
-function replaceText(str)
-{
-    var str1 = String(str);
-    return str1.replace(/\n/g,"<br/>");
-}
-rtcommPageApp.directive('prettyprint', function() {
-    return {
-        restrict: 'C',
-        link: function postLink(scope, element, attrs) {
-		element.html(prettyPrintOne(replaceText(element.html()),'',true));
-	    }
-    };
-});
 
 
+
+/* Define the functions to run once the angular-rtocmm module has been configurated */
 rtcommPageApp.run(function(RtcommService, $state, $rootScope, $modal, $log){
+	
+	
 	$rootScope.$state = $state;
-	$log.log("READDYYY!");	
 	$rootScope.registered = false;
 	
-
-
 	/* Global function to be called to open the registration modal */
 	$rootScope.openModal = function(){
 
@@ -217,18 +185,21 @@ rtcommPageApp.directive('registered', function(){
 
 });
 
-rtcommPageApp.controller('APIDocsCtrl', function($scope){
-	
-	$scope.directives = [];
-	$scope.services = [];
-	
-	API_DOCS.pages.forEach(function(page, index){
-		
-		if(page.category == "directive")
-			$scope.directives.push(page);
-		else if(page.category == "service")
-			$scope.services.push(page);
+/* Replace the break lines byu new lines */
+function replaceText(str)
+{
+    var str1 = String(str);
+    return str1.replace(/\n/g,"<br/>");
+}
 
-	})	
+/* Used to dynamically 'prettyprint' the code blocks of the page */
+rtcommPageApp.directive('prettyprint', function() {
+    return {
+        restrict: 'C',
+        link: function postLink(scope, element, attrs) {
+                element.html(prettyPrintOne(replaceText(element.html()),'',true));
+            }
+    };
+});
 
-})
+
